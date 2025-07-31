@@ -1,31 +1,81 @@
+:root {
+  --bg-color: #f7f7fb;
+  --text-color: #222;
+  --container-bg: #fff;
+  --border-color: #ccd;
+  --button-bg: #1e90ff;
+  --button-text: #fff;
+  --exam-bg: #f1faff;
+  --exam-border: #90caf9;
+}
+
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --container-bg: #1e1e1e;
+  --border-color: #444;
+  --button-bg: #4a90e2;
+  --button-text: #fff;
+  --exam-bg: #223344;
+  --exam-border: #5588ff;
+}
+
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f7f7fb;
+  background: var(--bg-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
 }
+
 .container {
   max-width: 850px;
   margin: 40px auto;
-  background: #fff;
+  background: var(--container-bg);
   padding: 30px 30px 50px;
   border-radius: 12px;
   box-shadow: 0 3px 18px #cfd8dc34;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#themeToggle {
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
 label {
   display: block;
   margin-top: 10px;
 }
+
 input[type="text"], input[type="number"] {
   width: 100%;
   padding: 7px;
   margin-bottom: 12px;
   border: 1px solid #bbb;
   border-radius: 4px;
+  background: var(--container-bg);
+  color: var(--text-color);
 }
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+  color: #999;
+}
+
 button {
-  background: #1e90ff;
-  color: #fff;
+  background: var(--button-bg);
+  color: var(--button-text);
   border: none;
   padding: 12px 0;
   border-radius: 6px;
@@ -33,27 +83,59 @@ button {
   font-size: 1.08rem;
   cursor: pointer;
   margin-top: 18px;
+  transition: background-color 0.3s ease;
 }
+
+button:hover {
+  background: #0d6efdcc;
+}
+
 #planner {
   margin-top: 35px;
 }
+
 .calendar-day {
   background: #e3f2fd;
-  border: 1px solid #ccd;
+  border: 1px solid var(--border-color);
   margin: 7px 0 0;
   padding: 12px;
   border-radius: 7px;
   font-size: 1rem;
+  word-wrap: break-word;
 }
+
+.dark-theme .calendar-day {
+  background: #2e3a59;
+}
+
 .exam-dates {
   margin-top: 20px;
-  background: #f1faff;
-  border: 1px solid #90caf9;
+  background: var(--exam-bg);
+  border: 1px solid var(--exam-border);
   padding: 13px 20px 6px 20px;
   border-radius: 9px;
   margin-bottom: 18px;
+  color: var(--text-color);
 }
+
 .exam-dates ul {
   margin: 0 0 5px 15px;
   padding: 0;
+}
+
+/* Responsive for phone */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px 15px;
+    padding: 20px 15px 35px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  button {
+    font-size: 1rem;
+  }
+  #themeToggle {
+    font-size: 1.3rem;
+  }
 }
