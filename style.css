@@ -35,22 +35,14 @@ body {
   padding: 30px 30px 50px;
   border-radius: 12px;
   box-shadow: 0 3px 18px #cfd8dc34;
-}
-
-header {
+  min-height: 90vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 }
 
-#themeToggle {
-  font-size: 1.5rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  user-select: none;
-  color: var(--text-color);
-  transition: color 0.3s ease;
+.error-msg {
+  color: #d9534f;
+  margin-top: 10px;
 }
 
 label {
@@ -58,7 +50,7 @@ label {
   margin-top: 10px;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"], input[type="password"], textarea, select {
   width: 100%;
   padding: 7px;
   margin-bottom: 12px;
@@ -66,11 +58,12 @@ input[type="text"], input[type="number"] {
   border-radius: 4px;
   background: var(--container-bg);
   color: var(--text-color);
+  font-size: 1rem;
+  resize: vertical;
 }
 
-input[type="text"]::placeholder,
-input[type="number"]::placeholder {
-  color: #999;
+textarea {
+  font-family: inherit;
 }
 
 button {
@@ -90,8 +83,39 @@ button:hover {
   background: #0d6efdcc;
 }
 
+.btn-small {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  margin-left: 8px;
+  border-radius: 5px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-small:hover {
+  background: #1266f1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
 #planner {
   margin-top: 35px;
+  overflow-x: auto;
 }
 
 .calendar-day {
@@ -108,6 +132,13 @@ button:hover {
   background: #2e3a59;
 }
 
+.break-day {
+  background: #dcedc8;
+  border-color: #aed581;
+  font-weight: bold;
+  color: #33691e;
+}
+
 .exam-dates {
   margin-top: 20px;
   background: var(--exam-bg);
@@ -115,7 +146,6 @@ button:hover {
   padding: 13px 20px 6px 20px;
   border-radius: 9px;
   margin-bottom: 18px;
-  color: var(--text-color);
 }
 
 .exam-dates ul {
@@ -123,7 +153,29 @@ button:hover {
   padding: 0;
 }
 
-/* Responsive for phone */
+.download-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.break-days-container {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  margin-bottom: 15px;
+  background: var(--container-bg);
+  border-radius: 6px;
+}
+
+.break-days-container label {
+  user-select: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 600px) {
   .container {
     margin: 20px 15px;
@@ -132,7 +184,7 @@ button:hover {
   h1 {
     font-size: 1.5rem;
   }
-  button {
+  button, input[type="text"], input[type="number"], textarea, select {
     font-size: 1rem;
   }
   #themeToggle {
