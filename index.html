@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📅 Study Planner - 30 Days</h1>
+    <form id="studyForm">
+      <label for="name">Your Name:</label><br />
+      <input type="text" id="name" required /><br />
+
+      <label for="subjects">No. of Subjects (Current Semester):</label><br />
+      <input type="number" id="subjects" min="1" required /><br />
+
+      <label for="arrears">No. of Arrears:</label><br />
+      <input type="number" id="arrears" min="0" required /><br />
+
+      <button type="submit">Generate Study Plan</button>
+    </form>
+
+    <div id="planner"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
