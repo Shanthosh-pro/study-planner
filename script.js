@@ -7,23 +7,22 @@ document.getElementById('studyForm').addEventListener('submit', function(e) {
 
   const totalSubjects = subjectsCount + arrearCount;
 
-  // Calendar dates
+  // Calendar dates for the semester
   const startDate = new Date("2025-08-01");
   const endDate = new Date("2025-12-10");
 
   const unitParts = ["2-mark Qs (10)", "13-mark Qs (5)", "15-mark Q (1)"];
   const unitsPerSubject = 5;
 
-  // Create list of all dates in this span
+  // List of all dates in the semester
   const days = [];
   let current = new Date(startDate);
-
   while (current <= endDate) {
     days.push(new Date(current));
     current.setDate(current.getDate() + 1);
   }
 
-  // Create all study segments (subject, unit, part)
+  // Make all study segments (subject, unit, part)
   const segments = [];
   for(let s=1; s<=totalSubjects; s++) {
     for(let u=1; u<=unitsPerSubject; u++) {
@@ -37,13 +36,12 @@ document.getElementById('studyForm').addEventListener('submit', function(e) {
     }
   }
 
-  // Fill the plan: rotate subjects and segments over days
+  // Fill the plan: assign each segment to a day, then revision for extra days
   const plannerDiv = document.getElementById('planner');
   plannerDiv.innerHTML = `<h2>Study Plan for ${name} (${days.length} days)</h2>`;
 
   let schedule = [];
   let segIdx = 0;
-  // Assign each day a study topic
   for(let i=0; i<days.length; i++) {
     let dayPlan;
     if(segIdx < segments.length) {
@@ -68,7 +66,7 @@ document.getElementById('studyForm').addEventListener('submit', function(e) {
     schedule.push(dayPlan);
   }
 
-  // Render planner visually
+  // Render planner
   for(let i=0; i<schedule.length; i++) {
     const entry = schedule[i];
     const div = document.createElement('div');
