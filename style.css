@@ -1,46 +1,59 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f2f2f2;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f7fb;
   margin: 0;
   padding: 0;
 }
-
 .container {
-  max-width: 700px;
-  margin: auto;
-  padding: 30px;
-  background-color: #fff;
-  margin-top: 50px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 850px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px 30px 50px;
+  border-radius: 12px;
+  box-shadow: 0 3px 18px #cfd8dc34;
 }
-
-input, label {
-  font-size: 16px;
-  margin-bottom: 10px;
+label {
+  display: block;
+  margin-top: 10px;
+}
+input[type="text"], input[type="number"] {
   width: 100%;
-  padding: 8px;
+  padding: 7px;
+  margin-bottom: 12px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
 }
-
 button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
+  background: #1e90ff;
+  color: #fff;
   border: none;
-  font-size: 16px;
+  padding: 12px 0;
+  border-radius: 6px;
   width: 100%;
+  font-size: 1.08rem;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 18px;
 }
-
 #planner {
-  margin-top: 30px;
+  margin-top: 35px;
 }
-
 .calendar-day {
   background: #e3f2fd;
-  border: 1px solid #ccc;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
+  border: 1px solid #ccd;
+  margin: 7px 0 0;
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 1rem;
+}
+.exam-dates {
+  margin-top: 20px;
+  background: #f1faff;
+  border: 1px solid #90caf9;
+  padding: 13px 20px 6px 20px;
+  border-radius: 9px;
+  margin-bottom: 18px;
+}
+.exam-dates ul {
+  margin: 0 0 5px 15px;
+  padding: 0;
 }
