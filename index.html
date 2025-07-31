@@ -1,41 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Semester Study Planner with Login</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
+<div id="plannerSection" style="display:none;">
 
-    <!-- LOGIN Section -->
-    <div id="loginSection">
-      <h2>🔐 Login</h2>
-      <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" required autocomplete="username" />
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" required autocomplete="current-password" />
-
-        <button type="submit">Login</button>
-      </form>
-      <p id="loginError" class="error-msg" style="display:none;">Invalid username or password</p>
+  <header class="planner-header">
+    <h1>📅 Semester Study Planner (Aug–Dec 2025)</h1>
+    <div class="header-controls">
+      <button id="logoutBtn" class="btn-small">Logout</button>
+      <button id="themeToggle" aria-label="Toggle dark/light theme" class="btn-small">🌞</button>
     </div>
+  </header>
 
-    <!-- MAIN Planner Section -->
-    <div id="plannerSection" style="display:none;">
-      
-      <header>
-        <h1>📅 Semester Study Planner (Aug–Dec 2025)</h1>
-        <div class="header-controls">
-          <button id="logoutBtn" class="btn-small">Logout</button>
-          <button id="themeToggle" aria-label="Toggle dark/light theme" class="btn-small">🌞</button>
-        </div>
-      </header>
+  <main class="planner-main">
 
-      <form id="studyForm">
+    <section class="study-details-section">
+      <form id="studyForm" class="study-form">
+        <h2>Your Study Details</h2>
         <label for="name">Your Name:</label>
         <input type="text" id="name" required autocomplete="name" />
 
@@ -45,38 +22,28 @@
         <label for="arrears">No. of Arrears:</label>
         <input type="number" id="arrears" min="0" required />
 
-        <button type="submit">Generate Planner 📚</button>
+        <button type="submit" class="btn-primary">Generate Planner 📚</button>
       </form>
+    </section>
 
-      <div class="exam-dates">
-        <h3>📌 Exam Dates</h3>
-        <ul>
-          <li>CAT 1: 20.08.25 - 27.08.25 (No Study)</li>
-          <li>CAT 2: 28.10.25 - 04.11.25 (No Study)</li>
-          <li>End Exam: 14.11.25</li>
-        </ul>
-      </div>
+    <section id="breakDaySelector" class="break-day-selector" style="display:none;">
+      <h2>🛑 Choose Your Break Days (Max 2 per month)</h2>
+      <div id="breakDaysContainer" class="break-days-container"></div>
+      <button id="saveBreakDaysBtn" class="btn-primary btn-small">Save Break Days</button>
+    </section>
 
-      <div id="breakDaySelector" style="display:none;">
-        <h3>🛑 Choose Your Break Days (Max 2 per month)</h3>
-        <div id="breakDaysContainer" class="break-days-container"></div>
-        <button id="saveBreakDaysBtn" class="btn-small">Save Break Days</button>
-      </div>
-
+    <section id="plannerContainer" class="planner-container" style="display:none;">
+      <h2>Your Study Plan</h2>
       <div id="planner"></div>
+    </section>
 
-      <div class="download-buttons" style="display:none;">
-        <button id="downloadCsvBtn">Download as CSV 📄</button>
-        <button id="downloadPdfBtn">Download as PDF 📕</button>
-      </div>
+  </main>
+
+  <footer class="planner-footer">
+    <div class="download-buttons" style="display:none;">
+      <button id="downloadCsvBtn" class="btn-primary">Download as CSV 📄</button>
+      <button id="downloadPdfBtn" class="btn-primary">Download as PDF 📕</button>
     </div>
+  </footer>
 
-  </div>
-
-  <!-- jsPDF CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
+</div>
